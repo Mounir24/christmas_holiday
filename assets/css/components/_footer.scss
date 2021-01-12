@@ -1,0 +1,93 @@
+@import './variables';
+
+/*------Functions For Fonts && Buttons------*/
+
+@mixin fonts($name, $weight, $size) {
+    font-family: $name;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin buttons($padd, $bg, $color) {
+    padding: $padd;
+    background: $bg;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: $color;
+    transition: 0.3s ease-in-out;
+}
+
+%displayed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: inherit;
+}
+
+
+/*============ FOOTER ============*/
+
+.footer__container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    .footer__logo {
+        @include fonts($russOne, 900, 22px);
+        text-transform: uppercase;
+        color: $title-color;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            color: $first-color;
+        }
+    }
+    .footer__content {
+        .footer__title {
+            margin-bottom: 1rem;
+        }
+        .footer__logo,
+        .footer__title {
+            font-size: $h3-font-size;
+        }
+        .footer__link {
+            @include fonts($rajdhani, 400, 17px);
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            color: $text-color;
+            transition: 0.3s ease-in-out;
+            &:after {
+                content: '';
+                width: 0%;
+                height: 4px;
+                display: block;
+                margin: 2px auto;
+                background: $first-color;
+                transition: 0.3s ease-in-out;
+                border-radius: 18px;
+            }
+            &:hover:after {
+                color: $first-color;
+                width: 100%;
+            }
+        }
+        .footer__social {
+            font-size: 1.5rem;
+            color: $title-color;
+            margin-right: 1.5rem;
+            transition: 0.3s ease-in-out;
+            &:hover {
+                color: $first-color;
+            }
+        }
+    }
+}
+
+.footer__copy {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: $text-color-light;
+    @include fonts($rajdhani, 400, 17px);
+    text-transform: uppercase;
+    span {
+        color: $first-color-send;
+    }
+}
